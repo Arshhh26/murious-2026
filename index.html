@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Murious 19.0 — Explore the Tech Universe | JUIT</title>
+  <meta name="description"
+    content="Murious 19.0 by JYC — The three-day tech fest panorama at JUIT. HackVortex, Blind Coding, Innovation Derby, and more. Register now!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ═══ MAGIC WAND CURSOR ═══ -->
+  <div id="wandCursor" class="wand-cursor">
+    <img src="static_cursor.png" class="wand-static" alt="">
+    <img src="clicked_cursor.png" class="wand-clicked" alt="">
+  </div>
+  <div id="wandShadow" class="wand-shadow"></div>
+  <div id="sparkleContainer" class="sparkle-container"></div>
+  <canvas id="wandTrail" class="wand-trail"></canvas>
+
+  <!-- ═══ FULL-SCREEN ANIMATION BACKGROUND ═══ -->
+  <div class="cinematic-bg">
+    <div class="bg-sky"></div>
+    <canvas id="heroCanvas"></canvas>
+    <div class="bg-fog-back"></div>
+    <div class="bg-fog-front"></div>
+    <div class="bg-particles" id="bgParticles"></div>
+    <div class="bg-vignette"></div>
+  </div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">✦ Murious</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#events" class="nav-link">Events</a></li>
+        <li><a href="#schedule" class="nav-link">Schedule</a></li>
+        <li><a href="#register" class="nav-link">Register</a></li>
+        <li><a href="#sponsors" class="nav-link">Sponsors</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ SCROLLABLE CONTENT ═══ -->
+  <main class="content-layer">
+
+    <!-- HOME / HERO -->
+    <section id="home" class="section hero-section">
+      <div class="hero-content">
+        <p class="hero-pre">✦ Explore the Tech Universe ✦</p>
+        <h1 class="hero-title">MURIOUS<span class="hero-year">19.0</span></h1>
+        <p class="hero-tagline">The Interstellar Journey of Tech, Innovation &amp; Beyond 🌌</p>
+        <div class="hero-cta-group">
+          <a href="https://forms.gle/axCYgx6kRqmrD6RG7" target="_blank" class="btn btn-primary">Register Now</a>
+          <a href="#events" class="btn btn-outline">Explore Events</a>
+        </div>
+        <div class="scroll-indicator">
+          <span>Scroll to Explore</span>
+          <div class="scroll-arrow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-tag">✦ Discover</span>
+          <h2 class="section-title">About Murious 19.0</h2>
+          <div class="title-ornament"></div>
+        </div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="about-lead">Presenting to you an experience like never before — <strong>Murious: The Three Days
+                Panorama</strong>. The TMP Club at JUIT is getting ready for a big technical festival that's more than
+              just an event; it's a mix of excitement and brainpower.</p>
+            <p>There'll be lots of tech stuff to see and do, like shows and demos that'll make you think. And don't
+              worry, it's not all serious — there'll be fun stuff too, like designing, hackathons, and gaming contests.
+              Basically, it's going to be a super fun celebration of tech and creativity!</p>
+            <p><strong>JUIT Youth Club (JYC)</strong> is the hub of enthusiasm and growth, expanding students' horizons
+              beyond academics into sports, literature, culture, and technology. It fosters self-expression,
+              recognition, and integration while building teamwork, sportsmanship, and leadership.</p>
+          </div>
+          <div class="about-highlights reveal">
+            <div class="highlight-card glass-card">
+              <div class="highlight-icon">🚀</div>
+              <h3>3 Days</h3>
+              <p>A panoramic journey through tech, creativity &amp; innovation</p>
+            </div>
+            <div class="highlight-card glass-card">
+              <div class="highlight-icon">🧠</div>
+              <h3>13 Events</h3>
+              <p>Hackathons, quizzes, design, coding &amp; more</p>
+            </div>
+            <div class="highlight-card glass-card">
+              <div class="highlight-icon">💡</div>
+              <h3>HackVortex</h3>
+              <p>18-hour flagship hackathon — build solutions for real-world problems</p>
+            </div>
+            <div class="highlight-card glass-card">
+              <div class="highlight-icon">🎓</div>
+              <h3>By JYC</h3>
+              <p>Organized by JUIT Youth Club's TMP division</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-tag">✦ Compete</span>
+          <h2 class="section-title">Student Events</h2>
+          <div class="title-ornament"></div>
+        </div>
+
+        <!-- HACKVORTEX FEATURED -->
+        <div class="featured-event glass-card reveal">
+          <div class="featured-event-content">
+            <span class="event-type featured-type">⚡ Flagship Event</span>
+            <h3>HackVortex</h3>
+            <p>The most awaited event of Murious — an <strong>18-hour hackathon</strong> where JUITians come together in
+              teams of <strong>2–4 members</strong> to create solutions for real-life problems. Push your limits,
+              innovate, and bring your ideas to life with mentorship, brainstorming sessions, and exciting problem
+              statements.</p>
+            <p class="featured-sub">Let's sit, play, eat, chill, and work to create the best we can!</p>
+            <a href="https://drive.google.com/file/d/1WscJIWWycX5eQzXC22tiITf636T7GMsm/view?usp=sharing" target="_blank"
+              class="btn btn-outline" style="margin-top:16px;">Problem Statements</a>
+          </div>
+        </div>
+
+        <div class="events-grid">
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">📸</div>
+            <h3>Click-O-Mania</h3>
+            <span class="event-type">Photography</span>
+            <p>Step into the enchanting world of photography, where every click turns moments into art! Freeze emotions,
+              capture breathtaking scenes, and find beauty in the ordinary.</p>
+          </div>
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">🎨</div>
+            <h3>Logo Remix Design</h3>
+            <span class="event-type">Design</span>
+            <p>Get ready to make your mark! This is your chance to craft a bold, innovative logo that stands out from
+              the crowd.</p>
+          </div>
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">🔍</div>
+            <h3>Digital Scavenger Hunt</h3>
+            <span class="event-type">Adventure</span>
+            <p>Embark on an exciting adventure where you solve intricate tech puzzles to discover hidden QR codes
+              scattered across the campus.</p>
+          </div>
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">🐛</div>
+            <h3>Code Cleanse</h3>
+            <span class="event-type">Debugging</span>
+            <p>Unleash your inner code detective and embark on a quest to uncover hidden errors lurking within lines of
+              code.</p>
+          </div>
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">💡</div>
+            <h3>Innovation Derby</h3>
+            <span class="event-type">Ideathon</span>
+            <p>Bring your creative solutions to real-world challenges. Collaborate with others and pitch your ideas to a
+              panel of judges.</p>
+          </div>
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">🎬</div>
+            <h3>Reel Rumble</h3>
+            <span class="event-type">Content Creation</span>
+            <p>Create a compelling reel around a surprise theme. Use visuals, music, and effects to engage and captivate
+              your audience.</p>
+          </div>
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">🎮</div>
+            <h3>Guess The Game</h3>
+            <span class="event-type">Gaming Quiz</span>
+            <p>Identify a video game based on clues about the game's story, characters, or gameplay mechanics. Guess it
+              before time runs out!</p>
+          </div>
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">🙈</div>
+            <h3>Blind Coding</h3>
+            <span class="event-type">Coding Challenge</span>
+            <p>An exciting challenge where participants test their programming skills by writing code without seeing
+              their screen.</p>
+          </div>
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">👕</div>
+            <h3>Make It Print</h3>
+            <span class="event-type">Design</span>
+            <p>Unleash your creativity at the ultimate competition for designing trendy T-shirts and hoodies.</p>
+          </div>
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">🧪</div>
+            <h3>QuizE</h3>
+            <span class="event-type">Quiz</span>
+            <p>Dive into the world of innovation with QuizE — a thrilling quiz event exploring Space, AI, and Tech.</p>
+          </div>
+        </div>
+
+        <!-- Faculty Events -->
+        <div class="section-header reveal" style="margin-top: 80px;">
+          <span class="section-tag">✦ Faculty Special</span>
+          <h2 class="section-title" style="font-size: clamp(1.5rem, 3vw, 2.2rem);">Faculty Events</h2>
+          <div class="title-ornament"></div>
+        </div>
+        <div class="events-grid events-grid-small">
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">✈️</div>
+            <h3>Soaring Skies</h3>
+            <span class="event-type">Fun Activity</span>
+            <p>This exhilarating event invites participants to unleash their inner aviators as they compete in the
+              ultimate paper airplane challenge.</p>
+          </div>
+          <div class="event-card glass-card reveal">
+            <div class="event-icon">🎱</div>
+            <h3>Tambola</h3>
+            <span class="event-type">Fun Activity</span>
+            <p>Where luck meets excitement in a game of chance and anticipation! Join friends for an evening of fun and
+              thrills in this beloved game.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="schedule" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-tag">✦ Timeline</span>
+          <h2 class="section-title">The Grand Schedule</h2>
+          <div class="title-ornament"></div>
+        </div>
+        <div class="schedule-tabs reveal">
+          <button class="schedule-tab active" data-day="1">Day 1 — Ignition</button>
+          <button class="schedule-tab" data-day="2">Day 2 — The Storm</button>
+          <button class="schedule-tab" data-day="3">Day 3 — The Finale</button>
+        </div>
+        <div class="timeline" id="timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-item reveal" data-day="1">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">09:00 AM</span>
+              <h3>Opening Ceremony</h3>
+              <p>The grand gates open. Welcome address &amp; inauguration of Murious 19.0.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-day="1">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">10:00 AM</span>
+              <h3>HackVortex — Kickoff</h3>
+              <p>The 18-hour hackathon begins. Problem statements revealed. Teams start building.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-day="1">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">11:00 AM</span>
+              <h3>Click-O-Mania &amp; Logo Remix Design</h3>
+              <p>Photography challenge and logo design competition kick off simultaneously.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-day="1">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">02:00 PM</span>
+              <h3>Digital Scavenger Hunt</h3>
+              <p>Teams race across campus solving tech puzzles and scanning hidden QR codes.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-day="1">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">04:00 PM</span>
+              <h3>Code Cleanse</h3>
+              <p>The debugging challenge. Find the bugs, fix the code, beat the clock.</p>
+            </div>
+          </div>
+          <!-- Day 2 -->
+          <div class="timeline-item reveal" data-day="2" style="display:none;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">09:00 AM</span>
+              <h3>Innovation Derby</h3>
+              <p>Pitch your creative solutions to real-world challenges before the jury.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-day="2" style="display:none;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">11:00 AM</span>
+              <h3>Blind Coding</h3>
+              <p>Write code without seeing the screen. Pure instinct, pure skill.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-day="2" style="display:none;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">02:00 PM</span>
+              <h3>Reel Rumble &amp; Make It Print</h3>
+              <p>Content creation and merch design challenges run in parallel.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-day="2" style="display:none;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">04:00 PM</span>
+              <h3>HackVortex — Final Stretch</h3>
+              <p>18 hours up. Final submissions and project demos begin.</p>
+            </div>
+          </div>
+          <!-- Day 3 -->
+          <div class="timeline-item reveal" data-day="3" style="display:none;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">09:00 AM</span>
+              <h3>Guess The Game &amp; QuizE</h3>
+              <p>Gaming quiz and the space/AI/tech trivia showdown.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-day="3" style="display:none;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">11:00 AM</span>
+              <h3>Faculty Events — Soaring Skies &amp; Tambola</h3>
+              <p>Paper airplane challenge and the beloved game of luck and anticipation.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-day="3" style="display:none;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">03:00 PM</span>
+              <h3>Prize Ceremony</h3>
+              <p>Awards, recognition &amp; prizes bestowed upon the victors of Murious 19.0.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-day="3" style="display:none;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-time">05:00 PM</span>
+              <h3>Grand Closing</h3>
+              <p>Farewell, networking &amp; celebration. Until Murious 20.0, explorers! 🚀</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTER -->
+    <section id="register" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-tag">✦ Join the Mission</span>
+          <h2 class="section-title">Register Now</h2>
+          <div class="title-ornament"></div>
+        </div>
+        <div class="register-wrapper">
+          <div class="register-info reveal">
+            <h3>Your Mission Awaits</h3>
+            <p>Claim your place among the tech explorers. Register for Murious 19.0 and prepare for three days of
+              innovation, competition, and unforgettable experiences.</p>
+            <ul class="register-perks">
+              <li>✦ Access to all 13 events</li>
+              <li>✦ HackVortex participation</li>
+              <li>✦ Certificate of participation</li>
+              <li>✦ Mentorship &amp; brainstorming sessions</li>
+              <li>✦ Networking with peers &amp; industry</li>
+            </ul>
+            <a href="https://forms.gle/axCYgx6kRqmrD6RG7" target="_blank" class="btn btn-primary"
+              style="margin-top:20px; display:inline-block;">Register on Google Forms ↗</a>
+          </div>
+          <form class="register-form glass-card reveal" id="registerForm">
+            <div class="form-group">
+              <label for="regName">Full Name</label>
+              <input type="text" id="regName" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="regEmail">Email</label>
+              <input type="email" id="regEmail" placeholder="you@juitsolan.in" required>
+            </div>
+            <div class="form-group">
+              <label for="regPhone">Phone</label>
+              <input type="tel" id="regPhone" placeholder="+91 98765 43210" required>
+            </div>
+            <div class="form-group">
+              <label for="regCollege">College / Organization</label>
+              <input type="text" id="regCollege" placeholder="JUIT Solan" required>
+            </div>
+            <div class="form-group">
+              <label for="regEvent">Preferred Event</label>
+              <select id="regEvent" required>
+                <option value="" disabled selected>Choose your mission...</option>
+                <option>HackVortex (Hackathon)</option>
+                <option>Click-O-Mania (Photography)</option>
+                <option>Logo Remix Design</option>
+                <option>Digital Scavenger Hunt</option>
+                <option>Code Cleanse (Debugging)</option>
+                <option>Innovation Derby (Ideathon)</option>
+                <option>Reel Rumble (Content Creation)</option>
+                <option>Guess The Game</option>
+                <option>Blind Coding</option>
+                <option>Make It Print (Design)</option>
+                <option>QuizE (Tech Quiz)</option>
+                <option>All Events</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="registerBtn">
+              <span class="btn-text">Submit Registration</span>
+              <span class="btn-magic">✦ Registered! ✦</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPONSORS -->
+    <section id="sponsors" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-tag">✦ Our Patrons</span>
+          <h2 class="section-title">Sponsors</h2>
+          <div class="title-ornament"></div>
+        </div>
+        <div class="sponsors-tier reveal">
+          <h3 class="tier-title">🌟 Event Sponsors</h3>
+          <div class="sponsors-grid">
+            <div class="sponsor-card glass-card">
+              <div class="sponsor-glow"></div>
+              <img src="https://murious.jyc.co.in/assets/lazizpizza-CYQ73uPV.jpeg" alt="Laziz Pizza"
+                class="sponsor-img">
+              <span>Laziz Pizza</span>
+            </div>
+            <div class="sponsor-card glass-card">
+              <div class="sponsor-glow"></div>
+              <img src="https://murious.jyc.co.in/assets/hopstay-BpjZGJk_.jpeg" alt="Hopstay" class="sponsor-img">
+              <span>Hopstay</span>
+            </div>
+            <div class="sponsor-card glass-card">
+              <div class="sponsor-glow"></div>
+              <img src="https://murious.jyc.co.in/assets/amul-BEqZfMeO.webp" alt="Amul" class="sponsor-img">
+              <span>Amul</span>
+            </div>
+            <div class="sponsor-card glass-card">
+              <div class="sponsor-glow"></div>
+              <img src="https://murious.jyc.co.in/assets/cafesserie-BHt08vgE.jpeg" alt="Cafesserie" class="sponsor-img">
+              <span>Cafesserie</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-tag">✦ Reach Out</span>
+          <h2 class="section-title">Contact Us</h2>
+          <div class="title-ornament"></div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <h3>Get In Touch</h3>
+            <p>Have questions about Murious 19.0? Reach out to our coordinators — they're ready to help.</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <span class="contact-icon">🧑‍💻</span>
+                <div>
+                  <strong>Srijan Saraswat</strong>
+                  <p>+91 9557930888 · <a href="mailto:221030377@juitsolan.in"
+                      style="color:var(--gold);">221030377@juitsolan.in</a></p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">🧑‍💻</span>
+                <div>
+                  <strong>Yash Khatri</strong>
+                  <p>+91 7428668227 · <a href="mailto:221030365@juitsolan.in"
+                      style="color:var(--gold);">221030365@juitsolan.in</a></p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">🧑‍💻</span>
+                <div>
+                  <strong>Akshit Mahajan</strong>
+                  <p>+91 8894606932 · <a href="mailto:221030244@juitsolan.in"
+                      style="color:var(--gold);">221030244@juitsolan.in</a></p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">🧑‍💻</span>
+                <div>
+                  <strong>Ayush Rawat</strong>
+                  <p>+91 9045498835 · <a href="mailto:221030205@juitsolan.in"
+                      style="color:var(--gold);">221030205@juitsolan.in</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="https://www.instagram.com/murious.juit/" target="_blank" class="social-link"
+                aria-label="Instagram">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                </svg>
+              </a>
+              <a href="https://x.com/JycJuit/" target="_blank" class="social-link" aria-label="Twitter/X">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/jyc.juit/" target="_blank" class="social-link" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path
+                    d="M12,2C6.477,2,2,6.477,2,12c0,5.013,3.693,9.153,8.505,9.876V14.65H8.031v-2.629h2.474v-1.749c0-2.896,1.411-4.167,3.818-4.167c1.153,0,1.762.085,2.051.124v2.294h-1.642c-1.022,0-1.379.969-1.379,2.061v1.437h2.995l-.406,2.629h-2.588v7.247C18.235,21.236,22,17.062,22,12C22,6.477,17.523,2,12,2z" />
+                </svg>
+              </a>
+              <a href="https://www.youtube.com/@JYCPhotographyClub" target="_blank" class="social-link"
+                aria-label="YouTube">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <form class="contact-form glass-card reveal" id="contactForm">
+            <div class="form-group">
+              <label for="contactName">Your Name</label>
+              <input type="text" id="contactName" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email</label>
+              <input type="email" id="contactEmail" placeholder="you@juitsolan.in" required>
+            </div>
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+              <input type="text" id="contactSubject" placeholder="Regarding Murious 19.0" required>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="footer-logo">✦ Murious 19.0</span>
+          <p>The Interstellar Journey of Tech, Innovation &amp; Beyond</p>
+          <p style="font-size:0.75rem; color:rgba(156,163,175,0.4); margin-top:4px;">A <a href="https://jyc.co.in/"
+              target="_blank" style="color:var(--gold);">JYC</a> Technical Festival · JUIT Solan</p>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a><a href="#about">About</a><a href="#events">Events</a>
+          <a href="#register">Register</a><a href="#contact">Contact</a>
+          <a href="https://murious.jyc.co.in/" target="_blank">Official Site ↗</a>
+        </div>
+        <p class="footer-copy">© 2026 Murious. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

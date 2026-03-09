@@ -2373,8 +2373,8 @@ img {
 
 .evt-card {
   position: absolute;
-  width: 280px;
-  height: 380px;
+  width: 250px;
+  height: 350px;
   border-radius: var(--radius);
   overflow: hidden;
   will-change: transform, opacity;
@@ -2388,8 +2388,8 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 30px;
+  gap: 15px;
+  padding: 25px;
   background: var(--bg-glass);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -2408,7 +2408,7 @@ img {
 }
 
 .evt-card-icon {
-  font-size: 4rem;
+  font-size: 3.2rem;
   filter: drop-shadow(0 4px 20px rgba(212, 168, 83, 0.4));
   position: relative;
   z-index: 2;
@@ -2419,7 +2419,7 @@ img {
   z-index: 2;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   line-height: 1.3;

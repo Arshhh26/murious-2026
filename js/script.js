@@ -35,7 +35,11 @@ function initFirebase() {
 (function () {
   'use strict';
 
-  // ── State ──
+  // ── Device Detection & Performance Optimization ──
+  const isMobile = window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isLowEndMobile = isMobile && (navigator.deviceMemory < 8 || navigator.hardwareConcurrency < 4);
+  
+  // State
   let windowH = window.innerHeight;
 
   // Wand state
@@ -52,7 +56,12 @@ function initFirebase() {
     const container = document.getElementById('bgParticles');
     if (!container) return;
 
-    for (let i = 0; i < 39; i++) {
+    // Optimize particle count for mobile
+    let particleCount = 39;
+    if (isMobile) particleCount = 20;
+    if (isLowEndMobile) particleCount = 12;
+
+    for (let i = 0; i < particleCount; i++) {
       const p = document.createElement('div');
       p.classList.add('particle');
       const size = Math.random() * 4.2 + 2.1;
@@ -103,8 +112,9 @@ function initFirebase() {
           : `rgba(139,92,246,${0.2 + Math.random() * 0.2})`
       });
 
-      // Limit trail length
-      if (trailPoints.length > 20) {
+      // Limit trail length (optimize for mobile)
+      const maxTrail = isMobile ? 12 : 20;
+      if (trailPoints.length > maxTrail) {
         trailPoints.shift();
       }
     }, { passive: true });
@@ -136,8 +146,10 @@ function initFirebase() {
         shadow.style.top = (wandY + 36) + 'px';
       }
 
-      // Draw trail
-      drawTrail();
+      // Draw trail (skip on very low-end mobile for better performance)
+      if (!isLowEndMobile) {
+        drawTrail();
+      }
 
       requestAnimationFrame(updateWand);
     }
@@ -173,9 +185,11 @@ function initFirebase() {
       trailCtx.globalAlpha = pt.alpha;
       trailCtx.fill();
 
-      // Glow
-      trailCtx.shadowBlur = pt.size * 4;
-      trailCtx.shadowColor = pt.color;
+      // Glow (optimize for mobile — skip on low-end devices)
+      if (!isLowEndMobile) {
+        trailCtx.shadowBlur = pt.size * 4;
+        trailCtx.shadowColor = pt.color;
+      }
     }
 
     trailCtx.globalAlpha = 1;
@@ -184,7 +198,20 @@ function initFirebase() {
 
   function spawnSparkles(x, y, container) {
     if (!container) return;
-    const count = 12 + Math.floor(Math.random() * 8);
+    
+    // Optimize sparkle count for mobile
+    let baseCount = 12;
+    let maxCount = 8;
+    if (isMobile) {
+      baseCount = 8;
+      maxCount = 4;
+    }
+    if (isLowEndMobile) {
+      baseCount = 6;
+      maxCount = 2;
+    }
+    
+    const count = baseCount + Math.floor(Math.random() * maxCount);
     for (let i = 0; i < count; i++) {
       const spark = document.createElement('div');
       spark.classList.add('sparkle');
@@ -599,6 +626,12 @@ function initFirebase() {
         title: "OPEN MIC",
         img: "images/openmic1.webp",
         desc: "In collaboration with the Theatre and Music Club, this stage welcomes poetry, storytelling, monologues, music, and everything in between. Step into the spotlight, share your story, and let your art be heard."
+      },
+
+      {
+        title: "HACKATHON",
+        img: "images/hack.webp",
+        desc: "A thrilling 24-hour coding marathon where innovation meets competition! Teams collaborate to build groundbreaking solutions from zero to hero. Unlimited creativity, mentorship, snacks, and cash prizes await the winners. Bring your ideas and coding superpowers!"
       }
     ];
 
@@ -705,8 +738,10 @@ ${evtCardData[i].title}
     function animateEvtGallery() {
       const rect = scrollContainer.getBoundingClientRect();
 
-      // Stronger optimization for mobile
-      if (rect.bottom < -400 || rect.top > window.innerHeight + 400) return;
+      // More aggressive culling for mobile
+      const cullDistance = isMobile ? 600 : 400;
+      if (rect.bottom < -cullDistance || rect.top > window.innerHeight + cullDistance) return;
+      
       const containerHeight = scrollContainer.offsetHeight;
       const viewportHeight = window.innerHeight;
       const scrollableDistance = containerHeight - viewportHeight;
@@ -799,7 +834,8 @@ ${evtCardData[i].title}
     initEventGallery();
     document.querySelectorAll(".magic-particles").forEach(container => {
 
-      for (let i = 0; i < 6; i++) {
+      const particleCountPerCard = isLowEndMobile ? 3 : isMobile ? 5 : 6;
+      for (let i = 0; i < particleCountPerCard; i++) {
 
         const p = document.createElement("span");
 

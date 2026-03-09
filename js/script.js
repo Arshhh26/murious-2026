@@ -543,61 +543,61 @@ function initFirebase() {
     const evtCardData = [
       {
         title: "THE TRIWIZARD QUEST",
-        img: "images/TREASURE.png",
+        img: "images/TREASURE.webp",
         desc: "The Triwizard Quest is a treasure hunt where wit, courage, and teamwork decide the ultimate champions. Participants face a series of clues, mysterious challenges, and hidden tasks scattered across the grounds."
       },
 
       {
         title: "E-SPORTS",
-        img: "images/console.png",
+        img: "images/console.webp",
         desc: "Step into the ultimate digital battlefield where strategy, precision, and reflexes define true champions. Our Esports Championship brings together the fiercest gamers on campus to compete in electrifying titles like Valorant, FIFA, Clash Royale, and Tekken."
       },
 
       {
         title: "REEL RUMBLE",
-        img: "images/reel.png",
+        img: "images/reel.webp",
         desc: "Create a compelling reel around a surprise theme. Use visuals, music, and effects to engage and captivate your audience. Judged on creativity, relevance, and impact. Grab your camera and let your imagination flow!"
       },
 
       {
         title: "FRAME IT",
-        img: "images/camera.png",
+        img: "images/camera.webp",
         desc: "Participants are required to roam around the campus and capture the best photograph based on the theme provided to them, ensuring it is visually appealing to everyone. The best shot wins!"
       },
 
       {
         title: "CODE ROYALE",
-        img: "images/laptop.png",
+        img: "images/laptop.webp",
         desc: "Code Royale is a high-intensity 1v1 coding battle where participants compete in knockout rounds to prove their dominance. With limited time and rising pressure, only the fastest and most accurate coder survives each round."
       },
 
       {
         title: "PROMPT TO DESIGN",
-        img: "images/cloud.png",
+        img: "images/cloud.webp",
         desc: "Prompt to Design is an AI-based challenge where participants recreate a given image using only text prompts. Contestants observe the reference image and generate it through an AI tool."
       },
 
       {
-        title: "STORAGE WARS",
-        img: "images/sword.png",
-        desc: "Students engage in bidding on storage containers using fake currency, inspecting only the exterior. Teams of 2–4 collaborate, emphasizing strategic thinking and resource management."
+        title: "CODING PREMIER LEAGUE",
+        img: "images/cplcode.webp",
+        desc: "Coding Premier League (CPL) is a competitive programming event by the IEEE Student Branch that combines coding with strategy. Participants use points to bid on problems based on their confidence, balancing risk and reward to maximize their score."
       },
 
       {
         title: "CODE IN DARK",
-        img: "images/codeinblack.png",
+        img: "images/codeinblack.webp",
         desc: "Code in Dark is a two-person team event that tests coding skills and communication. One teammate reads the problem and dictates the code, while the other, blindfolded, types it exactly as instructed."
       },
 
       {
         title: "TECH TRIVIA",
-        img: "images/QUIZ.png",
+        img: "images/QUIZ.webp",
         desc: "A fast-paced quiz game inspired by the KBC format, featuring multiple rounds of coding, general knowledge, and tech current affairs. Participants earn points each round, with a leaderboard deciding the ultimate winner."
       },
 
       {
         title: "OPEN MIC",
-        img: "images/openmic1.png",
+        img: "images/openmic1.webp",
         desc: "In collaboration with the Theatre and Music Club, this stage welcomes poetry, storytelling, monologues, music, and everything in between. Step into the spotlight, share your story, and let your art be heard."
       }
     ];
